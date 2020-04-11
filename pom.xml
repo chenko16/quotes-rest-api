@@ -10,9 +10,9 @@
 	</parent>
 
 	<groupId>ru.chenko</groupId>
-	<artifactId>securities-rest-api</artifactId>
+	<artifactId>quotes-rest-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>securities-rest-api</name>
+	<name>quotes-rest-api</name>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -21,11 +21,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
 		<dependency>
@@ -33,10 +33,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- h2db -->
 		<dependency>
-			<groupId>io.projectreactor</groupId>
-			<artifactId>reactor-test</artifactId>
-			<scope>test</scope>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+			<version>1.4.200</version>
 		</dependency>
 	</dependencies>
 

@@ -1,4 +1,4 @@
-package ru.chenko.securities;
+package ru.chenko.quotes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
