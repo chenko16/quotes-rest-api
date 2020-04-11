@@ -24,7 +24,11 @@ public class EnergyLevelService {
 
         EnergyLevel energyLevel = dao.findEnergyLevelByIsin(quote.getIsin());
         if(energyLevel == null) {
-            energyLevel = new EnergyLevel(quote.getIsin(), quote.getBid());
+            if(quote.getBid() == null) {
+                energyLevel = new EnergyLevel(quote.getIsin(), quote.getAsk());
+            } else {
+                energyLevel = new EnergyLevel(quote.getIsin(), quote.getBid());
+            }
         } else {
             if(quote.getBid() == null) {
                 energyLevel.setValue(quote.getAsk());

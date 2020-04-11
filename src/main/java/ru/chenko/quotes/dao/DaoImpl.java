@@ -9,6 +9,7 @@ import ru.chenko.quotes.dao.entity.QuoteEntity;
 import ru.chenko.quotes.model.EnergyLevel;
 import ru.chenko.quotes.model.Quote;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class DaoImpl implements Dao {
     }
 
     @Override
+    @Transactional
     public void saveQuote(Quote security) {
         //Сохраняем историю, поэтому не ищем quotes с таким же ISIN, в просто добавляем новую запись
         QuoteEntity newQuote = new QuoteEntity(security.getIsin(), security.getBid(), security.getAsk());
@@ -32,6 +34,7 @@ public class DaoImpl implements Dao {
     }
 
     @Override
+    @Transactional
     public void saveEnergyLevel(EnergyLevel energyLevel) {
         EnergyLevelEntity found = energyLevelRepository.findEnergyLevelEntityByIsin(energyLevel.getIsin());
         if(found == null) {
@@ -44,6 +47,7 @@ public class DaoImpl implements Dao {
     }
 
     @Override
+    @Transactional
     public EnergyLevel findEnergyLevelByIsin(String isin) {
         EnergyLevelEntity entity = energyLevelRepository.findEnergyLevelEntityByIsin(isin);
         if(entity != null) {
@@ -54,6 +58,7 @@ public class DaoImpl implements Dao {
     }
 
     @Override
+    @Transactional
     public List<EnergyLevel> getEnergyLevelList() {
         Iterable<EnergyLevelEntity> foundList = energyLevelRepository.findAll();
 
