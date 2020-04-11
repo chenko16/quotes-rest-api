@@ -20,9 +20,12 @@ public class SecuritiesController {
 
     private static final Logger logger = LoggerFactory.getLogger(SecuritiesController.class);
 
-    @Autowired
     private EnergyLevelService energyLevelService;
 
+    @Autowired
+    public SecuritiesController(EnergyLevelService energyLevelService) {
+        this.energyLevelService = energyLevelService;
+    }
 
     @PostMapping(path = "/quote")
     public ResponseEntity postQuote(@RequestBody Quote quote) {

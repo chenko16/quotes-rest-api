@@ -1,4 +1,4 @@
-package ru.chenko.securities;
+package ru.chenko.quotes;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

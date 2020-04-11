@@ -12,8 +12,12 @@ import java.util.List;
 @Service
 public class EnergyLevelService {
 
-    @Autowired
     private Dao dao;
+
+    @Autowired
+    public EnergyLevelService(Dao dao) {
+        this.dao = dao;
+    }
 
     public void processQuote(Quote quote) {
         QuoteValidator.checkQuote(quote);
